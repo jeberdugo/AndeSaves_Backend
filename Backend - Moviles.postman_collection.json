@@ -1,0 +1,231 @@
+{
+	"info": {
+		"_postman_id": "72591784-1ac2-497f-878e-7b10c2faebb4",
+		"name": "Backend - Moviles",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Expenses",
+			"item": [
+				{
+					"name": "Create expense",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": 50.00,\r\n  \"date\": \"2023-08-25T12:00:00Z\",\r\n  \"category\": \"Comida\",\r\n  \"description\": \"Almuerzo en el restaurante\",\r\n  \"user\": \"65091b9c0cdfa288bdabee17\", \r\n  \"isRecurring\": false,\r\n  \"recurrenceType\": null,\r\n  \"recurrenceEndDate\": null\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/expenses/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"expenses",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get expenses by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTA5MWI5YzBjZGZhMjg4YmRhYmVlMTciLCJuYW1lIjoiZHNmZCIsImVtYWlsIjoiai5iZXJkdWdvQGhvdG1haWwuY29tIiwicGhvbmVOdW1iZXIiOiI0NTQ2NSIsImlhdCI6MTY5NTA5NzM0NCwiZXhwIjoxNjk1MTAwOTQ0fQ.guqkOyhQgqY8mkfK8N3uz0XAj9Xkk9Wak9LVQs3J5Ro",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/expenses/list/65091b9c0cdfa288bdabee17",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"expenses",
+								"list",
+								"65091b9c0cdfa288bdabee17"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Incomes",
+			"item": [
+				{
+					"name": "Create income",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": 50.00,\r\n  \"date\": \"2023-08-25T12:00:00Z\",\r\n  \"source\": \"Sueldo\",\r\n  \"user\": \"65091b9c0cdfa288bdabee17\"\r\n\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/incomes/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"incomes",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get incomes by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTA5MWI5YzBjZGZhMjg4YmRhYmVlMTciLCJuYW1lIjoiZHNmZCIsImVtYWlsIjoiai5iZXJkdWdvQGhvdG1haWwuY29tIiwicGhvbmVOdW1iZXIiOiI0NTQ2NSIsImlhdCI6MTY5NTEwMTUzNywiZXhwIjoxNjk1MTA1MTM3fQ.uqrKrUlByw2-gVjKHZCvRUU7wltz7UdQKwl-dtQel9w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/incomes/list/65091b9c0cdfa288bdabee18",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"incomes",
+								"list",
+								"65091b9c0cdfa288bdabee18"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Register",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY5MTE5NzA3MCwiZXhwIjoxNjkxMTk4ODcwfQ.5ngikTtzczHQX_aHExS8C32iFVmvvwSfAHvHdgLEYaU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImouYmVyZHVnbzJAZ21haWwuY29tIiwiaWF0IjoxNjkxMTkyOTA4LCJleHAiOjE2OTExOTY1MDh9.HDPnfUfgx3IV001UQmGl6wp2VDu7IbyJzC4El3-b6hg",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"dsfd\",\r\n    \"email\": \"j.berdugo@hotmail.com\",\r\n    \"phoneNumber\": \"45465\",\r\n    \"password\": \"hola1234\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY5MTE5NzA3MCwiZXhwIjoxNjkxMTk4ODcwfQ.5ngikTtzczHQX_aHExS8C32iFVmvvwSfAHvHdgLEYaU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImouYmVyZHVnbzJAZ21haWwuY29tIiwiaWF0IjoxNjkxMTkyOTA4LCJleHAiOjE2OTExOTY1MDh9.HDPnfUfgx3IV001UQmGl6wp2VDu7IbyJzC4El3-b6hg",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"j.berdugo@hotmail.com\",\r\n    \"password\": \"hola1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
