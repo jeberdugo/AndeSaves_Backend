@@ -16,7 +16,7 @@ const User = require('./models/user');
 
 const mongoose = require('mongoose');
 console.log('Connecting to MongoDB...');
-mongoose.connect('mongodb://127.0.0.1:27017/tracking-money-db', {
+mongoose.connect('mongodb+srv://monitoring_user:hola1234@cluster0.qfbkz.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
