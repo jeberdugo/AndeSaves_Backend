@@ -37,6 +37,7 @@ var usersRouter = require('./routes/users');
 var authRoutes = require('./routes/auth');
 var expensesRoutes = require('./routes/expenses');
 var incomesRoutes = require('./routes/incomes');
+var categoriesRoutes = require('./routes/categories')
 
 var app = express();
 
@@ -55,6 +56,7 @@ app.use('/users', usersRouter);
 app.use('/auth', authRoutes);
 app.use('/expenses', expensesRoutes);
 app.use('/incomes', incomesRoutes);
+app.use('/categories', categoriesRoutes);
 
 passport.use(new LocalStrategy({
   usernameField: 'email',
