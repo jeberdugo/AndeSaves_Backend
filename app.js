@@ -61,7 +61,7 @@ passport.use(new LocalStrategy({
   passwordField: 'password',
 }, async (email, password, done) => {
   try {
-    const user = await User.findOne({ email: email });
+    const user = await User.findOne({ email: email.toLowerCase() });
     
     if (!user) {
       return done(null, false);
@@ -78,7 +78,6 @@ passport.use(new LocalStrategy({
 }));
 
 passport.use(new JwtStrategy(opts, async function(jwt_payload, done) {
-  console.log("lala");
   try{
   const user = await User.findOne({ _id: jwt_payload.userId });
 
