@@ -25,10 +25,10 @@ router.post('/register', async (req, res) => {
     passport.authenticate('local', (err, user, info) => {
 
       if (err) {
-        return res.status(500).json({ message: err.message });
+        return res.status(500).json({ auth: false, message: err.message });
       }
       if (!user) {
-        return res.status(401).json({ message: 'Invalid credentials' });
+        return res.status(401).json({ auth: false, message: 'Invalid credentials' });
       }
   
       // Successful authentication, generate JWT token
@@ -43,7 +43,7 @@ router.post('/register', async (req, res) => {
         { expiresIn: '1h' } // Adjust the token expiration as needed
       );
   
-      res.status(200).json({ token: token });
+      res.status(200).json({ auth: true, token: token });
     })(req, res, next);
   });
 
