@@ -43,7 +43,7 @@ router.post('/register', async (req, res) => {
         { expiresIn: '1h' } // Adjust the token expiration as needed
       );
   
-      res.status(200).json({ auth: true, token: token });
+      res.status(200).json({ user: user._id, auth: true, token: token });
     })(req, res, next);
   });
 
