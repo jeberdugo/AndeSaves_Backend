@@ -3,6 +3,7 @@ const router = express.Router();
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
 const Expense = require("../models/expense");
+const Transaction = require("../models/transaction");
 
 const authenticateJWT = (req, res, next) => {
   passport.authenticate("jwt", { session: false }, (err, user) => {
@@ -39,7 +40,15 @@ router.post("/new", authenticateJWT, async (req, res) => {
       recurrenceEndDate,
     });
 
+    const transaction = new Transaction({
+      expense: expense,
+      income: null,
+      user: user,
+    });
+
     req.user.balance = req.user.balance - amount;
+
+    await transaction.save();
     await req.user.save();
     await expense.save();
 
