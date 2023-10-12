@@ -38,6 +38,7 @@ var authRoutes = require('./routes/auth');
 var expensesRoutes = require('./routes/expenses');
 var incomesRoutes = require('./routes/incomes');
 var categoriesRoutes = require('./routes/categories')
+var budgetsRoutes = require('./routes/budgets')
 
 var app = express();
 
@@ -55,6 +56,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRoutes);
 app.use('/expenses', expensesRoutes);
+app.use('/budgets', budgetsRoutes);
 app.use('/incomes', incomesRoutes);
 app.use('/categories', categoriesRoutes);
 
