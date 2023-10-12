@@ -23,6 +23,8 @@ router.post("/new", authenticateJWT, async (req, res) => {
       name,
       total,
       user,
+      date,
+      type
     } = req.body;
 
     let amount = 0;
@@ -30,6 +32,8 @@ router.post("/new", authenticateJWT, async (req, res) => {
     const budget = new Budget({
         name,
         total,
+        date,
+        type,
         amount,
         user,
     });
