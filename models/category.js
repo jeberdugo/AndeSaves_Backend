@@ -5,6 +5,6 @@ const expenseSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
 });
 
-const Category = mongoose.model("Category", expenseSchema);
+const Category = mongoose.model("Category", categorySchema);
 
 module.exports = Category
