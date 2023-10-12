@@ -29,7 +29,6 @@ router.post("/new", authenticateJWT, async (req, res) => {
         user,
     });
 
-    await req.user.save();
     await category.save();
 
     return res
