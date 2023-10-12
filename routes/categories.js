@@ -25,6 +25,7 @@ router.post("/new", authenticateJWT, async (req, res) => {
     } = req.body;
 
     const category = new Category({
+        _id,
         name,
         user,
     });
