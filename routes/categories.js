@@ -42,9 +42,6 @@ router.post("/new", authenticateJWT, async (req, res) => {
 
 router.get("/list/:userId", authenticateJWT, async (req, res) => {
   try {
-    if (req.user._id != req.params.userId) {
-      return res.status(401).json({ message: "Acceso no autorizado" });
-    }
     const userId = req.params.userId;
     const categories = await Category.find({ user: userId });
 
