@@ -7,6 +7,8 @@ const Budget = require("../models/budget");
 const authenticateJWT = (req, res, next) => {
   passport.authenticate("jwt", { session: false }, (err, user) => {
     if (err || !user) {
+      console.log(err);
+      console.log(req.body)
       return res.status(401).json({ message: "Acceso no autorizado + Error: " + err, result: req.body });
     }
     req.user = user;
