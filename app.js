@@ -83,7 +83,7 @@ passport.use(new LocalStrategy({
 
 passport.use(new JwtStrategy(opts, async function(jwt_payload, done) {
   try{
-  const user = await User.findOne({ _id: jwt_payload.userId });
+  const user = await User.findOne({ email: jwt_payload.email.toLowerCase() });
 
     if (user) {
       return done(null, user);
