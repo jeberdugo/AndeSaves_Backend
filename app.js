@@ -93,6 +93,7 @@ passport.use(new JwtStrategy(opts, async function(jwt_payload, done) {
       return done(null, false);
     }
   }catch(err){
+    console.log('Error finding user in DB'+  err);
     return done(err, false);
   }
 
