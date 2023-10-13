@@ -86,8 +86,10 @@ passport.use(new JwtStrategy(opts, async function(jwt_payload, done) {
   const user = await User.findOne({ email: jwt_payload.email.toLowerCase() });
 
     if (user) {
+      console.log('User found in DB:', user);
       return done(null, user);
     } else {
+      console.log('User not found in DB');
       return done(null, false);
     }
   }catch(err){
