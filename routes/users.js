@@ -6,6 +6,7 @@ const User = require('../models/user');
 const Transaction = require('../models/transaction');
 
 const authenticateJWT = (req, res, next) => {
+  console.log('req.body', req);
   passport.authenticate("jwt", { session: false }, (err, user) => {
     if (err || !user) {
       return res.status(401).json({ message: "Acceso no autorizado" });
