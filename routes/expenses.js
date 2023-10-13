@@ -20,15 +20,13 @@ router.post("/new", authenticateJWT, async (req, res) => {
 
     const {
       amount,
-      date,
       category,
       description,
-      user,
-      isRecurring,
-      recurrenceType,
-      recurrenceEndDate,
+      user
     } = req.body;
 
+    let date = new Date();
+    
     const expense = new Expense({
       amount,
       date,

@@ -6,7 +6,7 @@ const expenseSchema = new mongoose.Schema({
   category: { type: String, required: true },
   description: { type: String, required: false },
   user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
-  isRecurring: { type: Boolean, required: true },
+  isRecurring: { type: Boolean, required: false },
   recurrenceType: { type: String, required: false },
   recurrenceEndDate: { type: Date, required: false },
 });
