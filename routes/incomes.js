@@ -19,8 +19,10 @@ const authenticateJWT = (req, res, next) => {
 
 router.post("/new", authenticateJWT , async (req, res) => {
   try {
-    const { amount, date, source, user } = req.body;
+    const { amount, source, user } = req.body;
 
+    let date = new Date();
+    
     const income = new Income({
       amount,
       date,
